@@ -1,0 +1,9 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/JetBrains Mono Regular Nerd Font Complete Mono Windows Compatible.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 50
+outline_size = 1
+outline_color = Color( 0.92549, 0.376471, 0.0784314, 1 )
+font_data = ExtResource( 1 )

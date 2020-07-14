@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Menu/ResumeButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Menu/QuitButton.tscn" type="PackedScene" id=2]
+
+[node name="Pause" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1080.0
+margin_bottom = 1920.0
+color = Color( 0, 0, 0, 0.670588 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 249.0
+margin_top = 727.0
+margin_right = 825.0
+margin_bottom = 1610.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_bottom = 541.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_constants/separation = 541
+
+[node name="Resume" parent="MarginContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="QuitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 264.0
+margin_right = 0.0
+margin_bottom = 541.0

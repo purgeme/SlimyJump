@@ -1,0 +1,241 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Scenes/SummonBlock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/JetBrains Mono Regular Nerd Font Complete Mono Windows Compatible.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/GroundBlocks.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/ButtonLeft.png" type="Texture" id=6]
+[ext_resource path="res://Assets/ButtonRight.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=8]
+[ext_resource path="res://Assets/ButtonLeft_pressed.png" type="Texture" id=9]
+[ext_resource path="res://Assets/ButtonJump_pressed.png" type="Texture" id=10]
+[ext_resource path="res://Assets/ButtonRight_pressed.png" type="Texture" id=11]
+[ext_resource path="res://Assets/PurpleArrow.svg" type="Texture" id=12]
+[ext_resource path="res://Assets/Quit.svg" type="Texture" id=13]
+[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 52
+font_data = ExtResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 809.925, 49.1013 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 904.276, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 147.166, 145.447 )
+
+[sub_resource type="Environment" id=5]
+background_mode = 1
+glow_enabled = true
+glow_bloom = 1.0
+
+[node name="Level" type="Node2D" groups=[
+"Level",
+]]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1472.0, 1728.0 ],
+"_edit_vertical_guides_": [ 539.972 ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = 7.64795
+margin_right = 1080.0
+margin_bottom = 1923.65
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SummonBlocks" type="Node2D" parent="."]
+
+[node name="SummonBlock0" parent="SummonBlocks" instance=ExtResource( 1 )]
+position = Vector2( 928.99, 64 )
+
+[node name="SummonBlock1" parent="SummonBlocks" instance=ExtResource( 1 )]
+position = Vector2( 800.99, 64 )
+
+[node name="SummonBlock2" parent="SummonBlocks" instance=ExtResource( 1 )]
+position = Vector2( 672.99, 64 )
+
+[node name="SummonBlock3" parent="SummonBlocks" instance=ExtResource( 1 )]
+position = Vector2( 544.99, 64 )
+
+[node name="SummonBlock4" parent="SummonBlocks" instance=ExtResource( 1 )]
+position = Vector2( 416.99, 64 )
+
+[node name="SummonBlock5" parent="SummonBlocks" instance=ExtResource( 1 )]
+position = Vector2( 288.99, 64 )
+
+[node name="SummonBlock6" parent="SummonBlocks" instance=ExtResource( 1 )]
+position = Vector2( 160.99, 64 )
+
+[node name="SummonTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="CanvasLayer" type="Node2D" parent="."]
+
+[node name="DirtBlocks" type="Node2D" parent="CanvasLayer"]
+
+[node name="FPS_meter" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="FPS_meter"]
+margin_left = 64.0
+margin_top = 128.0
+margin_right = 504.0
+margin_bottom = 320.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Hello World!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreCounter" type="Node2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScoreCounter"]
+margin_left = 704.0
+margin_top = 128.0
+margin_right = 1016.0
+margin_bottom = 320.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Score : "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="ScoreCounter"]
+wait_time = 0.5
+autostart = true
+
+[node name="RemoveBlocks" type="Timer" parent="."]
+process_mode = 0
+wait_time = 8.0
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 768, 1064 )
+collision_layer = 17
+collision_mask = 17
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="Ground" parent="Boundaries" instance=ExtResource( 4 )]
+position = Vector2( 539.972, 1288 )
+collision_layer = 5
+
+[node name="WallLeft" parent="Boundaries" instance=ExtResource( 4 )]
+position = Vector2( 55.7735, 732.013 )
+rotation = 1.57079
+collision_layer = 13
+collision_mask = 13
+
+[node name="WallRight" parent="Boundaries" instance=ExtResource( 4 )]
+position = Vector2( 1036.01, 731.487 )
+rotation = 1.57079
+collision_layer = 13
+collision_mask = 13
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries"]
+position = Vector2( 539.972, 64 )
+collision_layer = 16
+collision_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="OverFlowCheck" type="StaticBody2D" parent="Boundaries"]
+position = Vector2( 539.972, 174 )
+collision_layer = 16384
+collision_mask = 16384
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/OverFlowCheck"]
+shape = SubResource( 3 )
+
+[node name="TouchControls" type="MarginContainer" parent="."]
+margin_top = -3.8147e-06
+margin_bottom = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TouchControls"]
+margin_bottom = 4.0
+
+[node name="Control" type="Control" parent="TouchControls/VBoxContainer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TouchControls/VBoxContainer"]
+margin_top = 4.0
+margin_bottom = 4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Left" type="TouchScreenButton" parent="TouchControls/VBoxContainer/HBoxContainer"]
+position = Vector2( 64, 1468 )
+scale = Vector2( 0.1323, 0.1323 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 9 )
+action = "left"
+
+[node name="Light2D" type="Light2D" parent="TouchControls/VBoxContainer/HBoxContainer/Left"]
+visible = false
+position = Vector2( 32, 32 )
+texture = ExtResource( 6 )
+
+[node name="Jump" type="TouchScreenButton" parent="TouchControls/VBoxContainer/HBoxContainer"]
+position = Vector2( 683.773, 1468 )
+rotation = 1.57079
+scale = Vector2( 0.133162, 0.14848 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 10 )
+action = "jump"
+
+[node name="Light2D" type="Light2D" parent="TouchControls/VBoxContainer/HBoxContainer/Jump"]
+visible = false
+position = Vector2( 967.5, 967.5 )
+scale = Vector2( 30.2344, 30.2344 )
+texture = ExtResource( 12 )
+color = Color( 0.956863, 0.0941176, 0.956863, 1 )
+energy = 0.63
+
+[node name="Right" type="TouchScreenButton" parent="TouchControls/VBoxContainer/HBoxContainer"]
+position = Vector2( 1027.28, 1724 )
+rotation = 3.14159
+scale = Vector2( 0.137313, 0.1323 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 11 )
+action = "right"
+
+[node name="Light2D" type="Light2D" parent="TouchControls/VBoxContainer/HBoxContainer/Right"]
+visible = false
+position = Vector2( 32, 32 )
+texture = ExtResource( 7 )
+
+[node name="Quit" type="TouchScreenButton" parent="TouchControls"]
+position = Vector2( 470.745, 1779.03 )
+scale = Vector2( 0.462232, 0.440299 )
+normal = ExtResource( 13 )
+shape = SubResource( 4 )
+script = ExtResource( 8 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="Pause" parent="." instance=ExtResource( 14 )]
+
+[node name="QuitButton" parent="Pause/MarginContainer/VBoxContainer" index="1"]
+margin_top = 237.0
+[connection signal="timeout" from="SummonTimer" to="." method="_on_SummonTimer_timeout"]
+[connection signal="timeout" from="ScoreCounter/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="released" from="TouchControls/Quit" to="TouchControls/Quit" method="_on_Pause_released"]
+
+[editable path="Pause"]

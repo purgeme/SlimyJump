@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fonts/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Styles/MenuButton.tres" type="StyleBox" id=2]
+
+[node name="MenuButton" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_right = 576.0
+margin_bottom = 192.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/focus = ExtResource( 2 )
+custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+enabled_focus_mode = 0
+text = "Button"
+__meta__ = {
+"_edit_use_anchors_": false
+}

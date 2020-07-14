@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="DownwardArrow.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 56.515926 51.110056"
+   height="51.110058mm"
+   width="56.515926mm">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="2"
+     inkscape:window-x="2"
+     inkscape:window-height="728"
+     inkscape:window-width="1362"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="67.93561"
+     inkscape:cx="307.72919"
+     inkscape:zoom="0.7"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-67.914718,-109.23157)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <rect
+       ry="4.4119534"
+       rx="4.4499211"
+       y="52.801804"
+       x="92.523468"
+       height="76.775078"
+       width="37.323349"
+       id="rect12"
+       style="opacity:0;fill:#ff00ff;stroke-width:1.265" />
+    <path
+       transform="scale(0.26458333)"
+       d="m 470.28906,412.84375 a 218.12749,218.12749 0 0 1 -113.85937,32.07422 218.12749,218.12749 0 0 1 -99.74414,-24.14258 l 104.5625,185.24023 z"
+       style="opacity:1;fill:#ff00ff;stroke-width:6.36366"
+       id="rect16" />
+  </g>
+</svg>
