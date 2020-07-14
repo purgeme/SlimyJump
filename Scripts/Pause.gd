@@ -1,12 +1,12 @@
 extends Node2D
 
-var pause = false
+var pause = true
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("pause"):
+	if Input.is_action_just_released("pause"):
 		pausing()
 
 func pausing():
-	pause = not pause
+	#pause = not pause
 	get_tree().paused = pause
-	visible = pause
+	get_node(".").set_visible(pause)

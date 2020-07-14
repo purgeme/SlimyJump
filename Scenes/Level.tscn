@@ -12,7 +12,7 @@
 [ext_resource path="res://Assets/ButtonJump_pressed.png" type="Texture" id=10]
 [ext_resource path="res://Assets/ButtonRight_pressed.png" type="Texture" id=11]
 [ext_resource path="res://Assets/PurpleArrow.svg" type="Texture" id=12]
-[ext_resource path="res://Assets/Quit.svg" type="Texture" id=13]
+[ext_resource path="res://Assets/pauseButton.svg" type="Texture" id=13]
 [ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=14]
 
 [sub_resource type="DynamicFont" id=1]
@@ -26,7 +26,7 @@ extents = Vector2( 809.925, 49.1013 )
 extents = Vector2( 904.276, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 147.166, 145.447 )
+extents = Vector2( 120.963, 143.608 )
 
 [sub_resource type="Environment" id=5]
 background_mode = 1
@@ -36,6 +36,7 @@ glow_bloom = 1.0
 [node name="Level" type="Node2D" groups=[
 "Level",
 ]]
+pause_mode = 1
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 1472.0, 1728.0 ],
@@ -43,9 +44,9 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_top = 7.64795
+margin_top = 4.0
 margin_right = 1080.0
-margin_bottom = 1923.65
+margin_bottom = 1920.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -220,22 +221,24 @@ visible = false
 position = Vector2( 32, 32 )
 texture = ExtResource( 7 )
 
-[node name="Quit" type="TouchScreenButton" parent="TouchControls"]
-position = Vector2( 470.745, 1779.03 )
+[node name="Pause" type="TouchScreenButton" parent="TouchControls"]
+position = Vector2( 499.243, 1780.22 )
 scale = Vector2( 0.462232, 0.440299 )
 normal = ExtResource( 13 )
 shape = SubResource( 4 )
-script = ExtResource( 8 )
+action = "pause"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
 
 [node name="Pause" parent="." instance=ExtResource( 14 )]
+pause_mode = 2
+visible = false
+script = ExtResource( 8 )
 
 [node name="QuitButton" parent="Pause/MarginContainer/VBoxContainer" index="1"]
 margin_top = 237.0
 [connection signal="timeout" from="SummonTimer" to="." method="_on_SummonTimer_timeout"]
 [connection signal="timeout" from="ScoreCounter/Timer" to="." method="_on_Timer_timeout"]
-[connection signal="released" from="TouchControls/Quit" to="TouchControls/Quit" method="_on_Pause_released"]
 
 [editable path="Pause"]

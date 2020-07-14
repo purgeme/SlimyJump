@@ -33,6 +33,6 @@ margin_right = 0.0
 margin_bottom = 0.0
 
 [node name="QuitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 264.0
+margin_top = 541.0
 margin_right = 0.0
 margin_bottom = 541.0
