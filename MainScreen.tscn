@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Menu/QuitButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Menu/OptionsButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Menu/PlayButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/SaveSlimyMenuBackground.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/MainScreen.gd" type="Script" id=5]
+[ext_resource path="res://Music/select1.wav" type="AudioStream" id=6]
 
 [node name="MainScrene" type="Node2D"]
 script = ExtResource( 5 )
@@ -66,3 +67,10 @@ margin_bottom = 233.0
 margin_top = 233.0
 margin_right = 0.0
 margin_bottom = 233.0
+
+[node name="Select" type="AudioStreamPlayer" parent="." groups=[
+"Music",
+]]
+stream = ExtResource( 6 )
+[connection signal="finished" from="Select" to="Buttons/Buttons/PlayButton" method="_on_Select_finished"]
+[connection signal="finished" from="Select" to="Buttons/Buttons/QuitButton" method="_on_Select_finished"]

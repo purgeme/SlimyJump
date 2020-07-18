@@ -56,11 +56,14 @@ func _physics_process(delta):
 	if jumping :
 		if self.is_on_floor() and ($Bouncers/LeftBouncer.is_colliding() and $Bouncers/RightBouncer.is_colliding()):
 			velocityy -= JUMPING_SPEED
+			$Jump.play()
 		elif on_ground and ($Bouncers/LeftBouncer.is_colliding() or $Bouncers/RightBouncer.is_colliding()):
 			on_ground = false
 			velocityy -= JUMPING_SPEED
+			$Jump.play()
 		elif self.is_on_floor():
 			velocityy -= JUMPING_SPEED
+			$Jump.play()
 	# Execute movement
 	move_and_slide(Vector2(velocityx * MAX_SPEED, velocityy), Vector2(0, -1), false, 4, PI/4, false)
 	
