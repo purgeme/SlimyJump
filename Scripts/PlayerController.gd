@@ -7,7 +7,7 @@ const JUMPING_SPEED = 800
 var velocityx = 0
 var velocityy = 0
 var angle = 0
-var on_ground = true
+var not_on_ground = true
 
 # The particle system for the trailing effect
 onready var emitter = get_node("CollisionShape2D/Sprite/CPUParticles2D")
@@ -35,6 +35,11 @@ func get_input():
 
 # What to do when player is dead
 func playdead():
+	
+	var score = get_parent().score
+	#save the data
+	get_parent().get_node("PlayerData").save_data(score, "user://score.dat")
+
 	get_tree().change_scene("res://MainScreen.tscn") # Change scene to go back to main screen
 
 
@@ -70,19 +75,19 @@ func _physics_process(delta):
 			velocityy += GRAVITY * 3
 	else :
 		velocityy = 0
-		on_ground = true
+		not_on_ground = true
 	
 	# Implement jumping
 	if jumping :
 
 		#The first 2 conditions are there for wall jumping
 		if self.is_on_floor() and ($Bouncers/LeftBouncer.is_colliding() and $Bouncers/RightBouncer.is_colliding()):
-			on_ground = false
+			not_on_ground = false
 			velocityy = 0
 			velocityy -= JUMPING_SPEED
 			$Jump.play()
-		elif on_ground and ($Bouncers/LeftBouncer.is_colliding() or $Bouncers/RightBouncer.is_colliding()):
-			on_ground = false
+		elif not_on_ground and ($Bouncers/LeftBouncer.is_colliding() or $Bouncers/RightBouncer.is_colliding()):
+			not_on_ground = false
 			velocityy = 0
 			velocityy -= JUMPING_SPEED
 			$Jump.play()

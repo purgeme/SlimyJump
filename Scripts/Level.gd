@@ -3,7 +3,7 @@ extends Node2D
 var spawning = false
 var random_number = 0
 var random = RandomNumberGenerator.new()
-var score = 0
+export var score = 0
 
 var pause = false
 
@@ -19,7 +19,6 @@ func spawner_function(t):
 func spawn_location(current_pos):
 	var y = random.randi_range(-65, 65)
 	var x = spawner_function(y) + 3
-	print(x)
 	if y<0 : 
 		x = (7 - x)
 	var spawn_pos = int(x)
@@ -29,7 +28,6 @@ func _on_SummonTimer_timeout():
 	# random_number = random.randi_range(1, 7)
 	# random_number = spawn_location(get_node("/root/Level/Player"))
 	random_number = spawn_location(540)
-	print(random_number)
 	if random_number in [0, 1, 2, 3, 4, 5, 6]:
 		get_node("SummonBlocks/SummonBlock" + str(random_number))._spawn()
 
