@@ -38,7 +38,8 @@ func playdead():
 	
 	var score = get_parent().score
 	#save the data
-	get_parent().get_node("PlayerData").save_data(score, "user://score.dat")
+	if get_parent().get_node("PlayerData").load_data(null, "user://score.dat") < score:
+		get_parent().get_node("PlayerData").save_data(score, "user://score.dat")
 
 	get_tree().change_scene("res://MainScreen.tscn") # Change scene to go back to main screen
 
