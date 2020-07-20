@@ -5,16 +5,13 @@
 [ext_resource path="res://Fonts/JetBrains Mono Regular Nerd Font Complete Mono Windows Compatible.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scenes/GroundBlocks.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/ButtonLeft.png" type="Texture" id=6]
-[ext_resource path="res://Assets/ButtonRight.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=8]
-[ext_resource path="res://Assets/ButtonLeft_pressed.png" type="Texture" id=9]
-[ext_resource path="res://Assets/ButtonJump_pressed.png" type="Texture" id=10]
-[ext_resource path="res://Assets/ButtonRight_pressed.png" type="Texture" id=11]
-[ext_resource path="res://Assets/PurpleArrow.svg" type="Texture" id=12]
-[ext_resource path="res://Assets/pauseButton.svg" type="Texture" id=13]
+[ext_resource path="res://Assets/PauseButton1.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/PlayerData.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/LeftArrowButton1.png" type="Texture" id=16]
+[ext_resource path="res://Assets/RightArrowButton1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/UpArrowButton1.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 52
@@ -26,8 +23,20 @@ extents = Vector2( 809.925, 49.1013 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 904.276, 10 )
 
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/ButtonLeft_pressed.png-9a6523b54a47334c4732d656882f41a6.stex"
+
+[sub_resource type="StreamTexture" id=7]
+flags = 4
+load_path = "res://.import/ButtonJump_pressed.png-cc7174dda6e2f906da328328e110588d.stex"
+
+[sub_resource type="StreamTexture" id=8]
+flags = 4
+load_path = "res://.import/ButtonRight_pressed.png-94a78c39d01d964bb15ee2bebb410639.stex"
+
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 120.963, 143.608 )
+extents = Vector2( 256, 143.608 )
 
 [sub_resource type="Environment" id=5]
 background_mode = 1
@@ -182,48 +191,28 @@ size_flags_vertical = 3
 
 [node name="Left" type="TouchScreenButton" parent="TouchControls/VBoxContainer/HBoxContainer"]
 position = Vector2( 64, 1468 )
-scale = Vector2( 0.1323, 0.1323 )
-normal = ExtResource( 12 )
-pressed = ExtResource( 9 )
+scale = Vector2( 0.487769, 0.495581 )
+normal = ExtResource( 16 )
+pressed = SubResource( 6 )
 action = "left"
 
-[node name="Light2D" type="Light2D" parent="TouchControls/VBoxContainer/HBoxContainer/Left"]
-visible = false
-position = Vector2( 32, 32 )
-texture = ExtResource( 6 )
-
 [node name="Jump" type="TouchScreenButton" parent="TouchControls/VBoxContainer/HBoxContainer"]
-position = Vector2( 683.773, 1468 )
-rotation = 1.57079
-scale = Vector2( 0.133162, 0.14848 )
-normal = ExtResource( 12 )
-pressed = ExtResource( 10 )
+position = Vector2( 416.99, 1468 )
+scale = Vector2( 0.479395, 0.495581 )
+normal = ExtResource( 18 )
+pressed = SubResource( 7 )
 action = "jump"
 
-[node name="Light2D" type="Light2D" parent="TouchControls/VBoxContainer/HBoxContainer/Jump"]
-visible = false
-position = Vector2( 967.5, 967.5 )
-scale = Vector2( 30.2344, 30.2344 )
-texture = ExtResource( 12 )
-color = Color( 0.956863, 0.0941176, 0.956863, 1 )
-energy = 0.63
-
 [node name="Right" type="TouchScreenButton" parent="TouchControls/VBoxContainer/HBoxContainer"]
-position = Vector2( 1027.28, 1724 )
-rotation = 3.14159
-scale = Vector2( 0.137313, 0.1323 )
-normal = ExtResource( 12 )
-pressed = ExtResource( 11 )
+position = Vector2( 768, 1468 )
+scale = Vector2( 0.484375, 0.491431 )
+normal = ExtResource( 17 )
+pressed = SubResource( 8 )
 action = "right"
 
-[node name="Light2D" type="Light2D" parent="TouchControls/VBoxContainer/HBoxContainer/Right"]
-visible = false
-position = Vector2( 32, 32 )
-texture = ExtResource( 7 )
-
 [node name="Pause" type="TouchScreenButton" parent="TouchControls"]
-position = Vector2( 499.243, 1780.22 )
-scale = Vector2( 0.462232, 0.440299 )
+position = Vector2( 486.029, 1778.33 )
+scale = Vector2( 0.197758, 0.21586 )
 normal = ExtResource( 13 )
 shape = SubResource( 4 )
 action = "pause"
