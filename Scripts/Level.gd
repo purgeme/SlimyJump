@@ -25,8 +25,6 @@ func spawn_location(current_pos):
 	return spawn_pos
 
 func _on_SummonTimer_timeout():
-	# random_number = random.randi_range(1, 7)
-	# random_number = spawn_location(get_node("/root/Level/Player"))
 	random_number = spawn_location(540)
 	if random_number in [0, 1, 2, 3, 4, 5, 6]:
 		get_node("SummonBlocks/SummonBlock" + str(random_number))._spawn()
