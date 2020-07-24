@@ -131,17 +131,17 @@ collision_mask = 17
 [node name="Boundaries" type="Node2D" parent="."]
 
 [node name="Ground" parent="Boundaries" instance=ExtResource( 4 )]
-position = Vector2( 539.972, 1288 )
+position = Vector2( 539.972, 1297.44 )
 collision_layer = 5
 
 [node name="WallLeft" parent="Boundaries" instance=ExtResource( 4 )]
-position = Vector2( -32.3398, 727 )
+position = Vector2( 64, 727 )
 rotation = 1.57079
 collision_layer = 13
 collision_mask = 13
 
 [node name="WallRight" parent="Boundaries" instance=ExtResource( 4 )]
-position = Vector2( 1112.23, 727 )
+position = Vector2( 1016, 727 )
 rotation = 1.57079
 collision_layer = 13
 collision_mask = 13
